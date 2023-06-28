@@ -29,7 +29,7 @@ mv -f /etc/kubernetes/kubelet.conf /etc/kubernetes/_old_kubelet.conf
 rm -rf /var/lib/kubelet/pki/_old_kubelet-client
 mkdir -p /var/lib/kubelet/pki/_old_kubelet-client
 mv /var/lib/kubelet/pki/kubelet-client* /var/lib/kubelet/pki/_old_kubelet-client/
-kubeadm kubeconfig user --config kubeadm_config.yaml --org system:nodes --client-name system:node:$NODE --v=9 > /etc/kubernetes/kubelet.conf
+kubeadm kubeconfig user --config kubeadm_config.yaml --org system:nodes --client-name system:node:node1 --v=9 > /etc/kubernetes/kubelet.conf
 systemctl restart kubelet
 until test -f "/var/lib/kubelet/pki/kubelet-client-current.pem";
 do
